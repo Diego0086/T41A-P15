@@ -24,9 +24,9 @@ def test_new_sql_functions():
         cur.execute("SELECT correo_valido('test.example.com');")
         assert cur.fetchone()[0] is False
 
-        cur.execute("SELECT dia_semana('2025-09-11'::DATE);")
+        cur.execute("SELECT dia_semana('2025-11-09'::DATE);")
         nombre_dia = cur.fetchone()[0].strip()
-        assert nombre_dia in ('Sunday', 'Domingo')
+        assert nombre_dia == 'SUNDAY'
 
         cur.execute("SELECT * FROM bajo_stock(40);")
         resultados_stock = cur.fetchall()
